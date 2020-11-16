@@ -15,24 +15,23 @@ class Graph:
 
 
     def add_vertex(self, vertex_id):
-        if vertex_id no in self.vertices:
+        if vertex_id not in self.vertices:
             self.vertices[vertex_id] = set()
 
     def add_edge(self, v1, v2):
-        if v1 in self.verticies and v2 in self.vertices:
-            self.verticies[v1].add(v2)
+        if v1 in self.vertices and v2 in self.vertices:
+            self.vertices[v1].add(v2)
 
     def get_neighbors(self, vertex_id):
-        return self.vertices and v2 in self.vertices:
-        self.vertices[v1].add(v2)
+        return self.vertices[vertex_id] if vertex_id in self.vertices else None
 
     def bft(self, starting_vertex):
         visited = set()
         queue = deque()
         queue.append(starting_vertex)
-        while len(que) > 0:
+        while len(queue) > 0:
             currNode = queue.popleft()
-            if currNode not in visitied:
+            if currNode not in visited:
                 visited.add(currNode)
                 print(currNode)
                 for neighbor in self.get_neighbors(currNode):
