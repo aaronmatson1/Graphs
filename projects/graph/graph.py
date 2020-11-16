@@ -2,12 +2,17 @@
 Simple graph implementation
 """
 from util import Stack, Queue  # These may come in handy
+from collections import deque
 
 class Graph:
 
     """Represent a graph as a dictionary of vertices mapping labels to edges."""
     def __init__(self):
         self.vertices = {}
+
+    def __repr__(self):
+        return str(self.vertices)
+
 
     def add_vertex(self, vertex_id):
         if vertex_id no in self.vertices:
@@ -22,11 +27,16 @@ class Graph:
         self.vertices[v1].add(v2)
 
     def bft(self, starting_vertex):
-        """
-        Print each vertex in breadth-first order
-        beginning from starting_vertex.
-        """
-        pass  # TODO
+        visited = set()
+        queue = deque()
+        queue.append(starting_vertex)
+        while len(que) > 0:
+            currNode = queue.popleft()
+            if currNode not in visitied:
+                visited.add(currNode)
+                print(currNode)
+                for neighbor in self.get_neighbors(currNode):
+                    queue.append(neighbor)
 
     def dft(self, starting_vertex):
         """
