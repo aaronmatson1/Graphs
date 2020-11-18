@@ -52,6 +52,10 @@ class SocialGraph:
             self.add_user(f"User {i}")
 
         # Create friendships
+        # Generate all possible friendships and put in array
+        # 3 users (0, 1, 2)
+        # [(0, 1), (0, 2), (1, 2)]
+        possible_friendships = []
         for user_id in self.users:
             #Use the user_id + 1 to prevent dupes
             for friend_id in range(user_id + 1, self.last_id + 1):
@@ -62,7 +66,7 @@ class SocialGraph:
             random.shuffle(possible_friendships)
 
             #num_users * avg_friendships / 2 =  frienships for the graph
-            for in in range(math.floor(num_users * avg_friendships /2)):
+            for i in range(math.floor(num_users * avg_friendships /2)):
                 friendship = possible_friendships[i]
                 self.add_friendship(friendship[0], friendship[1])
 
